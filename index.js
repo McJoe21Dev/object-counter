@@ -1,7 +1,3 @@
-function element(id){
-  return document.getElementById(id)
-}
-
 function go(){
   
   var data = {
@@ -9,19 +5,21 @@ function go(){
     l: Number(element('limit').value),
     s: element('suffix').value
   }
-  
   run(data.n, data.l, data.s)
-  //if (data.n != 0 & data.l != 0 data.s.length != 0){
-    //run(data.n, data.l, data.s)
-  //}
 }
+
 function run(number, limit, suffix) {
-  var n = number
-  
+  var items = [];
+  var n = number;
+  var style = '"font-family: Impact ;font-weight: bold;"';
+
   for (var i = 0; i < limit; i++) {
-    document.write('<br/>'+n+' '+suffix)
+    items.push(n+' '+suffix)
     n += number
   }
   
+  var items2 = items.join('<br/>')
+  document.write('<h3 style='+style+'>Object Counter List</h3>')
+  document.write('<span style='+style+'>'+items2)
   document.write('<br/><br/><button onclick="location.reload()">Start Again</button>')
 }
